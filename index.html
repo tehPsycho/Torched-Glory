@@ -21,7 +21,7 @@
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="index.html" aria-label="Torched Glory home">
-          <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
+          <img src="Images/torched_glory_banner_style_transparent.png" alt="Torched Glory banner mark" />
           <span>Torched Glory</span>
         </a>
         <div class="nav-links">
@@ -36,7 +36,8 @@
       <section class="hero">
         <div class="hero-content">
           <p class="eyebrow">Burnt wood • Handcrafted detail • Custom sizes</p>
-          <h1>Wooden flags built with grit and glory.</h1>
+          <h1 class="visually-hidden">Torched Glory handmade wooden flags</h1>
+          <img class="hero-logo" src="Images/big_round_logo.jpeg" alt="Torched Glory round logo" />
           <p class="hero-copy">
             Torched Glory designs handmade wooden flags with rich torch-work,
             carved details, bold finishes, and custom options for homes,
@@ -79,19 +80,15 @@
           <div class="carousel-track" tabindex="0">
             <figure class="carousel-slide">
               <img src="Images/Flags/Messenger_creation_1068F938-9DAC-4666-AA3E-47B27FD5B37A.jpeg" alt="Torched Glory wooden flag with carved emblem" />
-              <figcaption>Layered torch marks and bold carved detail.</figcaption>
             </figure>
             <figure class="carousel-slide">
               <img src="Images/Flags/Messenger_creation_F552126A-4892-4E2E-A12D-31797CEEA32D.jpeg" alt="Custom handmade wooden flag example" />
-              <figcaption>Rustic finish with high-contrast flag striping.</figcaption>
             </figure>
             <figure class="carousel-slide">
               <img src="Images/Flags/Messenger_creation_A4D24FA1-2526-44F7-9440-1D89A61F7D80.jpeg" alt="Wood flag with stained stripes" />
-              <figcaption>Dimensional wood grain finished for display.</figcaption>
             </figure>
             <figure class="carousel-slide">
               <img src="Images/Flags/Messenger_creation_F5B87B4F-8FB3-4389-A6FC-69369FAA55B0.jpeg" alt="Personalized wood flag design" />
-              <figcaption>Personalized layout with clean shop-built edges.</figcaption>
             </figure>
           </div>
           <button class="carousel-button carousel-button-next" type="button" aria-label="Show next flag">
@@ -150,12 +147,19 @@
       </section>
     </main>
 
+    <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Expanded wooden flag gallery">
+      <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <img class="lightbox-image" src="" alt="" />
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>
+
     <footer class="site-footer">
       <div>
-        <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
+        <img src="Images/big_round_logo.jpeg" alt="Torched Glory logo" />
         <span>Torched Glory</span>
       </div>
-      <p>Handmade wooden flags with custom torch-work, stain, and detail.</p>
+      <p>Handmade wooden flags with custom torch-work, stain, and detail. <a href="https://c2control.com/" target="_blank" rel="noopener">Site developed by C2C</a></p>
     </footer>
   </body>
 </html>
