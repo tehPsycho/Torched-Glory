@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Submit a Torched Glory custom wooden flag inquiry with required size, reference images, and design details."
+    />
+    <title>Inquiry | Torched Glory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Torched Glory home">
+          <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
+          <span>Torched Glory</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#gallery">Gallery</a>
+          <a href="index.html#process">Process</a>
+          <a aria-current="page" href="inquiry.html">Inquiry</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="inquiry-hero">
+        <div>
+          <p class="eyebrow">Custom request</p>
+          <h1>Start a wooden flag inquiry.</h1>
+          <p class="hero-copy">
+            Upload reference images, define the exact flag size you need, and
+            describe the colors, emblems, wood finish, and special details that
+            should guide the build.
+          </p>
+        </div>
+        <aside class="inquiry-note">
+          <strong>Required before submitting</strong>
+          <p>
+            Please include both width and height. Reference photos, logos, or
+            sketches help Torched Glory understand the style and layout you want.
+          </p>
+        </aside>
+      </section>
+
+      <section class="form-section" aria-labelledby="form-title">
+        <div class="section-heading">
+          <p class="eyebrow">Project details</p>
+          <h2 id="form-title">Tell us what to build.</h2>
+        </div>
+
+        <form class="inquiry-form" action="mailto:orders@torchedglory.com" method="post" enctype="multipart/form-data">
+          <div class="field-grid">
+            <label>
+              Your name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Phone number
+              <input type="tel" name="phone" autocomplete="tel" />
+            </label>
+            <label>
+              Desired timeline
+              <input type="text" name="timeline" placeholder="Example: birthday gift by July" />
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Required flag size</legend>
+            <div class="field-grid three-columns">
+              <label>
+                Width
+                <input type="number" name="width" min="1" step="0.25" placeholder="36" required />
+              </label>
+              <label>
+                Height
+                <input type="number" name="height" min="1" step="0.25" placeholder="19.5" required />
+              </label>
+              <label>
+                Units
+                <select name="units" required>
+                  <option value="inches">Inches</option>
+                  <option value="feet">Feet</option>
+                  <option value="centimeters">Centimeters</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <label>
+            Upload reference images, logos, or sketches
+            <input type="file" name="reference-images" accept="image/*,.pdf" multiple />
+            <span class="field-help">You can select multiple files. Images, logos, sketches, or a PDF brief are helpful.</span>
+          </label>
+
+          <label>
+            Specific requests
+            <textarea
+              name="specific-requests"
+              rows="7"
+              placeholder="Describe the flag style, colors, stain, emblem, engraving, text, service branch, business logo, or any must-have details."
+              required
+            ></textarea>
+          </label>
+
+          <label>
+            Where will the flag be displayed?
+            <select name="display-location">
+              <option value="indoor">Indoor wall display</option>
+              <option value="covered-outdoor">Covered outdoor area</option>
+              <option value="gift">Gift</option>
+              <option value="business">Business or organization</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <button class="button button-primary" type="submit">Submit Inquiry</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
+        <span>Torched Glory</span>
+      </div>
+      <p>Handmade wooden flags with custom torch-work, stain, and detail.</p>
+    </footer>
+  </body>
+</html>

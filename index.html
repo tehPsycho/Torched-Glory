@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Torched Glory creates bold, durable flags with custom logo options for brands, teams, events, and personal displays."
+      content="Torched Glory creates handmade wooden flags with custom sizes, logos, colors, and burnt wood finishes."
     />
-    <title>Torched Glory | Custom Flags Built to Stand Out</title>
+    <title>Torched Glory | Handmade Wooden Flags</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,18 +15,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Torched Glory home">
-          <span class="brand-mark">TG</span>
+        <a class="brand" href="index.html" aria-label="Torched Glory home">
+          <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
           <span>Torched Glory</span>
         </a>
         <div class="nav-links">
-          <a href="#flags">Flags</a>
-          <a href="#custom">Custom Logos</a>
-          <a href="#contact">Get a Quote</a>
+          <a href="index.html#gallery">Gallery</a>
+          <a href="index.html#process">Process</a>
+          <a href="inquiry.html">Inquiry</a>
         </div>
       </nav>
     </header>
@@ -34,93 +35,127 @@
     <main id="top">
       <section class="hero">
         <div class="hero-content">
-          <p class="eyebrow">Premium flags • Custom logo options</p>
-          <h1>Flags with fire, grit, and glory.</h1>
+          <p class="eyebrow">Burnt wood • Handcrafted detail • Custom sizes</p>
+          <h1>Wooden flags built with grit and glory.</h1>
           <p class="hero-copy">
-            Torched Glory helps businesses, teams, and proud collectors order
-            standout flags and add custom logos that make every display feel
-            one-of-a-kind.
+            Torched Glory designs handmade wooden flags with rich torch-work,
+            carved details, bold finishes, and custom options for homes,
+            service members, businesses, and meaningful gifts.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#custom">Start a Custom Flag</a>
-            <a class="button button-secondary" href="#flags">Browse Flag Styles</a>
+            <a class="button button-primary" href="inquiry.html">Start an Inquiry</a>
+            <a class="button button-secondary" href="#gallery">See Finished Flags</a>
           </div>
         </div>
-        <div class="hero-card" aria-label="Featured flag preview">
-          <div class="flag-preview">
-            <span></span>
-            <strong>TORCHED<br />GLORY</strong>
-            <em>Custom Logo Ready</em>
-          </div>
-          <div class="feature-strip">
-            <span>Outdoor-ready</span>
-            <span>Sharp colors</span>
-            <span>Bulk orders</span>
+        <div class="hero-feature" aria-label="Featured wooden flag example">
+          <img
+            src="Images/Flags/Messenger_creation_1068F938-9DAC-4666-AA3E-47B27FD5B37A.jpeg"
+            alt="Handmade wooden flag example by Torched Glory"
+          />
+          <div class="hero-badge">
+            <strong>Custom built</strong>
+            <span>Size, stain, emblem, and layout</span>
           </div>
         </div>
       </section>
 
-      <section class="section" id="flags">
-        <div class="section-heading">
-          <p class="eyebrow">Shop the lineup</p>
-          <h2>Built for porches, shops, events, and everything in between.</h2>
-        </div>
-        <div class="product-grid">
-          <article class="product-card">
-            <div class="product-icon">★</div>
-            <h3>Signature Flags</h3>
-            <p>Bold Torched Glory designs for customers who want a ready-made statement piece.</p>
-          </article>
-          <article class="product-card">
-            <div class="product-icon">⚑</div>
-            <h3>Business & Event Flags</h3>
-            <p>High-visibility flags designed for storefronts, vendor booths, and community events.</p>
-          </article>
-          <article class="product-card">
-            <div class="product-icon">✦</div>
-            <h3>Team & Group Orders</h3>
-            <p>Coordinated flag runs for crews, leagues, clubs, and organizations that need impact.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="custom-section" id="custom">
-        <div>
-          <p class="eyebrow">Add your mark</p>
-          <h2>Custom logo flags made simple.</h2>
+      <section class="section gallery-section" id="gallery">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Finished work</p>
+            <h2>A gallery of flags already brought to life.</h2>
+          </div>
           <p>
-            Upload a logo, choose a size, and let Torched Glory prepare a flag
-            concept that fits your brand, shop, or personal collection.
+            Browse examples of previous builds, then use the inquiry page to
+            upload references, define your required size, and share the details
+            that will make your flag personal.
+          </p>
+        </div>
+
+        <div class="carousel-shell" aria-label="Wooden flag carousel">
+          <button class="carousel-button carousel-button-prev" type="button" aria-label="Show previous flag">
+            ‹
+          </button>
+          <div class="carousel-track" tabindex="0">
+            <figure class="carousel-slide">
+              <img src="Images/Flags/Messenger_creation_1068F938-9DAC-4666-AA3E-47B27FD5B37A.jpeg" alt="Torched Glory wooden flag with carved emblem" />
+              <figcaption>Layered torch marks and bold carved detail.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <img src="Images/Flags/Messenger_creation_F552126A-4892-4E2E-A12D-31797CEEA32D.jpeg" alt="Custom handmade wooden flag example" />
+              <figcaption>Rustic finish with high-contrast flag striping.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <img src="Images/Flags/Messenger_creation_A4D24FA1-2526-44F7-9440-1D89A61F7D80.jpeg" alt="Wood flag with stained stripes" />
+              <figcaption>Dimensional wood grain finished for display.</figcaption>
+            </figure>
+            <figure class="carousel-slide">
+              <img src="Images/Flags/Messenger_creation_F5B87B4F-8FB3-4389-A6FC-69369FAA55B0.jpeg" alt="Personalized wood flag design" />
+              <figcaption>Personalized layout with clean shop-built edges.</figcaption>
+            </figure>
+          </div>
+          <button class="carousel-button carousel-button-next" type="button" aria-label="Show next flag">
+            ›
+          </button>
+        </div>
+
+        <div class="gallery-grid" aria-label="More wooden flag examples">
+          <img src="Images/Flags/Messenger_creation_BB60570C-C80E-44E0-9C5F-13D4D7D4FD94.jpeg" alt="Wooden flag gallery example" />
+          <img src="Images/Flags/Messenger_creation_612B0130-9AAA-46DE-AF9F-4D5F3613781C.jpeg" alt="Wooden flag with custom finish" />
+          <img src="Images/Flags/Messenger_creation_DD5E85E2-2E9A-498F-B178-EABAFB675EAB.jpeg" alt="Finished Torched Glory flag" />
+          <img src="Images/Flags/Messenger_creation_425FB746-3CBD-4283-BA7D-927807717064.jpeg" alt="Handmade wood flag detail" />
+          <img src="Images/Flags/Messenger_creation_EB9B64B1-1050-4471-A862-BE4A1E6A4916.jpeg" alt="Custom rustic wooden flag" />
+          <img src="Images/Flags/Messenger_creation_CBFE711E-3AE6-4782-83C0-8BB29DEE6E50.jpeg" alt="Torched Glory completed wood flag" />
+          <img src="Images/Flags/Messenger_creation_87E35BD5-5EE2-4B5D-9A5C-FF5055F26D13.jpeg" alt="Wooden American flag example" />
+        </div>
+      </section>
+
+      <section class="process-section" id="process">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>From reference image to finished wall piece.</h2>
+          <p>
+            Every build starts with the details: the exact size, design idea,
+            colors, finish, and any logos, badges, or inspiration images you
+            want reflected in the final wooden flag.
           </p>
         </div>
         <ol class="steps">
           <li>
             <span>01</span>
-            <strong>Send your logo</strong>
-            <p>Share an existing mark, rough sketch, or idea for the design direction.</p>
+            <strong>Send measurements</strong>
+            <p>Choose the exact width and height for the finished wooden flag.</p>
           </li>
           <li>
             <span>02</span>
-            <strong>Approve the mockup</strong>
-            <p>Review the flag layout before the order moves into production.</p>
+            <strong>Upload references</strong>
+            <p>Share logos, photos, sketches, and examples that guide the design.</p>
           </li>
           <li>
             <span>03</span>
-            <strong>Fly the finished flag</strong>
-            <p>Receive a polished flag ready for display, gifting, or resale.</p>
+            <strong>Confirm the build</strong>
+            <p>Review the details before the flag moves into the shop.</p>
           </li>
         </ol>
       </section>
 
       <section class="cta" id="contact">
-        <p class="eyebrow">Ready to build yours?</p>
-        <h2>Start with a flag idea and we’ll help shape the order.</h2>
+        <p class="eyebrow">Ready to start?</p>
+        <h2>Tell Torched Glory exactly what you want built.</h2>
         <p>
-          This layout is ready for the next step: adding products, prices,
-          upload details, and checkout or inquiry form functionality.
+          Submit a request with your required flag size, reference images, and
+          custom notes so the project can begin with the right details.
         </p>
-        <a class="button button-primary" href="mailto:orders@torchedglory.com">Request a Quote</a>
+        <a class="button button-primary" href="inquiry.html">Open Inquiry Form</a>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div>
+        <img src="Images/Logo.jpeg" alt="Torched Glory logo" />
+        <span>Torched Glory</span>
+      </div>
+      <p>Handmade wooden flags with custom torch-work, stain, and detail.</p>
+    </footer>
   </body>
 </html>
