@@ -6,20 +6,36 @@ const lightboxImage = document.querySelector('.lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrevious = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
-const galleryImages = Array.from(document.querySelectorAll('.carousel-slide img, .gallery-grid img'));
+const carouselSlides = Array.from(document.querySelectorAll('.carousel-slide'));
+const galleryImages = carouselSlides.map((slide) => slide.querySelector('img')).filter(Boolean);
+const galleryThumbnails = Array.from(document.querySelectorAll('.gallery-thumbnail'));
 
 let activeImageIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
 
-function scrollCarousel(direction) {
-  if (!carouselTrack) {
+function setActiveGalleryImage(index) {
+  if (galleryImages.length === 0) {
     return;
   }
 
-  const slide = carouselTrack.querySelector('.carousel-slide');
-  const slideWidth = slide ? slide.getBoundingClientRect().width : carouselTrack.clientWidth;
-  carouselTrack.scrollBy({ left: direction * (slideWidth + 24), behavior: 'smooth' });
+  activeImageIndex = (index + galleryImages.length) % galleryImages.length;
+
+  carouselSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === activeImageIndex;
+    slide.classList.toggle('is-active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+
+  galleryThumbnails.forEach((thumbnail, thumbnailIndex) => {
+    const isActive = thumbnailIndex === activeImageIndex;
+    thumbnail.classList.toggle('is-active', isActive);
+    thumbnail.setAttribute('aria-current', String(isActive));
+  });
+}
+
+function showGalleryImage(direction) {
+  setActiveGalleryImage(activeImageIndex + direction);
 }
 
 function setLightboxImage(index) {
@@ -31,6 +47,7 @@ function setLightboxImage(index) {
   const selectedImage = galleryImages[activeImageIndex];
   lightboxImage.src = selectedImage.currentSrc || selectedImage.src;
   lightboxImage.alt = selectedImage.alt;
+  setActiveGalleryImage(activeImageIndex);
 }
 
 function openLightbox(index) {
@@ -59,8 +76,20 @@ function showLightboxImage(direction) {
   setLightboxImage(activeImageIndex + direction);
 }
 
-previousButton?.addEventListener('click', () => scrollCarousel(-1));
-nextButton?.addEventListener('click', () => scrollCarousel(1));
+previousButton?.addEventListener('click', () => showGalleryImage(-1));
+nextButton?.addEventListener('click', () => showGalleryImage(1));
+
+carouselTrack?.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    showGalleryImage(-1);
+  }
+
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    showGalleryImage(1);
+  }
+});
 
 galleryImages.forEach((image, index) => {
   image.addEventListener('click', () => openLightbox(index));
@@ -72,6 +101,10 @@ galleryImages.forEach((image, index) => {
   });
   image.setAttribute('tabindex', '0');
   image.setAttribute('role', 'button');
+});
+
+galleryThumbnails.forEach((thumbnail, index) => {
+  thumbnail.addEventListener('click', () => setActiveGalleryImage(index));
 });
 
 lightboxClose?.addEventListener('click', closeLightbox);
@@ -117,3 +150,5 @@ document.addEventListener('keydown', (event) => {
     showLightboxImage(1);
   }
 });
+
+setActiveGalleryImage(0);
