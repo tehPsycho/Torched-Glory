@@ -284,9 +284,9 @@ h2 {
   right: auto;
   bottom: 18px;
   left: 50%;
-  width: min(82%, 300px);
-  max-width: 260px;
-  padding: 14px 16px;
+  width: min(92%, 420px);
+  max-width: 420px;
+  padding: 10px 18px;
   border: 1px solid rgba(247, 234, 216, 0.22);
   border-radius: 20px;
   background: rgba(18, 9, 6, 0.78);
@@ -876,8 +876,8 @@ input::file-selector-button {
 
   .hero-badge {
     bottom: 14px;
-    width: min(calc(100% - 28px), 280px);
-    padding: 12px 14px;
+    width: min(calc(100% - 28px), 360px);
+    padding: 10px 14px;
   }
 
   .hero-badge strong {
