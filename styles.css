@@ -80,7 +80,7 @@ a {
   justify-content: space-between;
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 14px 0;
+  padding: 10px 0;
 }
 
 .brand,
@@ -98,8 +98,9 @@ a {
 }
 
 .brand img {
-  width: 64px;
-  height: 64px;
+  width: auto;
+  height: 82px;
+  max-width: 260px;
   object-fit: contain;
   filter: drop-shadow(0 0 20px rgba(212, 90, 37, 0.45));
 }
@@ -150,9 +151,9 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
   gap: 48px;
-  align-items: center;
-  min-height: 760px;
-  padding: 82px 0;
+  align-items: start;
+  min-height: auto;
+  padding: 24px 0 72px;
 }
 
 .eyebrow {
@@ -207,7 +208,8 @@ h2 {
 }
 
 .hero-logo {
-  width: min(100%, 460px);
+  width: min(100%, 560px);
+  margin-top: 4px;
   margin-bottom: 28px;
   border: 1px solid rgba(227, 176, 91, 0.36);
   border-radius: 50%;
@@ -257,9 +259,14 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.hero-feature-eyebrow {
+  margin: 0 0 12px;
+  text-align: left;
+}
+
 .hero-feature img {
   width: 100%;
-  height: min(68vh, 610px);
+  height: min(62vh, 560px);
   border-radius: 24px;
   object-fit: cover;
 }
@@ -316,34 +323,32 @@ h2 {
 }
 
 .carousel-track {
-  display: grid;
-  grid-auto-columns: minmax(300px, 72%);
-  grid-auto-flow: column;
-  gap: 24px;
-  overflow-x: auto;
-  padding: 0 4px 18px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-color: var(--gold) rgba(247, 234, 216, 0.08);
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: var(--shadow);
 }
 
 .carousel-slide {
   position: relative;
-  min-height: 560px;
+  display: none;
+  min-height: 640px;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  background: var(--card);
-  scroll-snap-align: start;
-  box-shadow: var(--shadow);
+}
+
+.carousel-slide.is-active {
+  display: block;
 }
 
 .carousel-slide img {
   width: 100%;
-  height: 100%;
-  min-height: 560px;
-  object-fit: cover;
+  height: min(72vh, 720px);
+  min-height: 640px;
+  object-fit: contain;
+  background: rgba(7, 3, 2, 0.42);
 }
 
 
@@ -375,21 +380,36 @@ h2 {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  grid-auto-columns: minmax(130px, 1fr);
+  grid-auto-flow: column;
   gap: 14px;
   margin-top: 28px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-color: var(--gold) rgba(247, 234, 216, 0.08);
 }
 
-.gallery-grid img {
-  width: 100%;
-  height: 170px;
+.gallery-thumbnail {
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: 18px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gallery-thumbnail.is-active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(227, 176, 91, 0.24);
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 150px;
   object-fit: cover;
 }
 
-.carousel-slide img,
-.gallery-grid img {
+.carousel-slide img {
   cursor: zoom-in;
 }
 
@@ -708,25 +728,20 @@ input::file-selector-button {
 
   .hero {
     min-height: auto;
-    padding-top: 54px;
+    padding-top: 20px;
   }
 
   .hero-feature img {
     height: 520px;
   }
 
-  .carousel-track {
-    grid-auto-columns: 86%;
-  }
-
-  .gallery-grid,
   .field-grid,
   .three-columns {
     grid-template-columns: 1fr;
   }
 
-  .gallery-grid img {
-    height: 240px;
+  .gallery-thumbnail img {
+    height: 150px;
   }
 
   .cta,
@@ -752,8 +767,9 @@ input::file-selector-button {
   }
 
   .brand img {
-    width: 52px;
-    height: 52px;
+    width: auto;
+    height: 58px;
+    max-width: 170px;
   }
 
   .hero-logo {
@@ -785,6 +801,7 @@ input::file-selector-button {
   }
 
   .carousel-button {
-    display: none;
+    width: 42px;
+    height: 42px;
   }
 }
