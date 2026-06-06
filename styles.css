@@ -11,6 +11,7 @@
   --card: rgba(247, 234, 216, 0.075);
   --border: rgba(247, 234, 216, 0.16);
   --shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+  --anchor-offset: 132px;
 }
 
 * {
@@ -19,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
 }
 
 body {
@@ -493,14 +495,17 @@ body.lightbox-open {
 
 .process-section {
   display: grid;
+  scroll-margin-top: var(--anchor-offset);
   grid-template-columns: 0.82fr 1.18fr;
   gap: 32px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .steps {
   display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  height: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -517,6 +522,7 @@ body.lightbox-open {
 .steps li {
   display: grid;
   grid-template-columns: auto 1fr;
+  align-content: center;
   gap: 8px 18px;
   padding: 24px;
 }
@@ -715,6 +721,10 @@ input::file-selector-button {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --anchor-offset: 188px;
+  }
+
   .nav,
   .hero,
   .process-section,
@@ -766,6 +776,15 @@ input::file-selector-button {
     text-align: center;
   }
 
+  .process-section {
+    align-items: start;
+  }
+
+  .steps {
+    grid-template-rows: none;
+    height: auto;
+  }
+
   .field-grid,
   .three-columns {
     grid-template-columns: 1fr;
@@ -782,6 +801,10 @@ input::file-selector-button {
 }
 
 @media (max-width: 560px) {
+  :root {
+    --anchor-offset: 172px;
+  }
+
   .nav {
     width: min(100% - 24px, 1160px);
     gap: 12px;
