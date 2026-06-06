@@ -1,3 +1,22 @@
+const siteHeader = document.querySelector('.site-header');
+
+function updateAnchorOffset() {
+  if (!siteHeader) {
+    return;
+  }
+
+  const headerHeight = Math.ceil(siteHeader.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--anchor-offset', `${headerHeight + 8}px`);
+}
+
+updateAnchorOffset();
+window.addEventListener('load', updateAnchorOffset);
+window.addEventListener('resize', updateAnchorOffset);
+
+if (siteHeader && 'ResizeObserver' in window) {
+  new ResizeObserver(updateAnchorOffset).observe(siteHeader);
+}
+
 const carouselTrack = document.querySelector('.carousel-track');
 const previousButton = document.querySelector('.carousel-button-prev');
 const nextButton = document.querySelector('.carousel-button-next');
