@@ -47,7 +47,7 @@
           </aside>
         </div>
 
-        <form class="inquiry-form" action="mailto:orders@torchedglory.com" method="post" enctype="multipart/form-data">
+        <form class="inquiry-form" id="inquiry-form">
           <div class="form-heading">
             <p class="eyebrow">Project details</p>
             <h2 id="form-title">Tell us what to build.</h2>
@@ -120,6 +120,7 @@
             </select>
           </label>
 
+          <p id="form-status" class="form-status" aria-live="polite"></p>
           <button class="button button-primary" type="submit">Submit Inquiry</button>
         </form>
       </section>
@@ -131,5 +132,86 @@
       </div>
       <p>Handmade wooden flags with custom torch-work, stain, and detail. <a href="https://c2control.com/" target="_blank" rel="noopener">Site developed by C2C</a></p>
     </footer>
+    <script>
+      const SCRIPT_URL = "PASTE_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+
+      const form = document.getElementById("inquiry-form");
+      const statusMessage = document.getElementById("form-status");
+
+      if (form) {
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const submitButton = form.querySelector('button[type="submit"]');
+          const fileInput = form.querySelector('input[name="reference-images"]');
+
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+          statusMessage.textContent = "Submitting your inquiry...";
+          statusMessage.className = "form-status";
+
+          try {
+            const files = await Promise.all(
+              Array.from(fileInput.files).map(fileToBase64)
+            );
+
+            const payload = {
+              name: form.querySelector('input[name="name"]').value.trim(),
+              email: form.querySelector('input[name="email"]').value.trim(),
+              phone: form.querySelector('input[name="phone"]').value.trim(),
+              timeline: form.querySelector('input[name="timeline"]').value.trim(),
+              width: form.querySelector('input[name="width"]').value.trim(),
+              height: form.querySelector('input[name="height"]').value.trim(),
+              units: form.querySelector('select[name="units"]').value,
+              specificRequests: form.querySelector('textarea[name="specific-requests"]').value.trim(),
+              displayLocation: form.querySelector('select[name="display-location"]').value,
+              files: files
+            };
+
+            const response = await fetch(SCRIPT_URL, {
+              method: "POST",
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (!result.success) {
+              throw new Error(result.message || "The form could not be submitted.");
+            }
+
+            statusMessage.textContent = "Inquiry submitted successfully. Torched Glory will review your request.";
+            statusMessage.className = "form-status success";
+
+            form.reset();
+          } catch (error) {
+            statusMessage.textContent = "There was a problem submitting the form. Please try again or email orders@torchedglory.com directly.";
+            statusMessage.className = "form-status error";
+            console.error(error);
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Inquiry";
+          }
+        });
+      }
+
+      function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onload = () => {
+            const base64 = reader.result.split(",")[1];
+
+            resolve({
+              name: file.name,
+              mimeType: file.type || "application/octet-stream",
+              base64: base64
+            });
+          };
+
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+    </script>
   </body>
 </html>
